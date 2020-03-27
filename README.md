@@ -1,3 +1,3 @@
 # Fizzbuzz
 
-Test project for Angular practice.
+Testing various things with Angular and Node JS.
