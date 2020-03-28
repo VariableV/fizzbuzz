@@ -28,6 +28,17 @@ router.get('/fizzbuzz',function(req, res){
     res.json({ out: result });
 });
 
+router.get('/login',function(req,res){
+    var fin;
+    if (req.query.user==="fizz" && req.query.pass==="buzz"){
+        fin = "Success";
+    }
+    else{
+        fin = "Username or password incorrect";
+    }
+    res.json({ out: fin });
+});
+
 app.use('/api',router);
 
 app.listen(port, ()=>console.log(`api on ${port}`));

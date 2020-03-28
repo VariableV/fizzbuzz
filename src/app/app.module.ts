@@ -6,18 +6,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FizzbuzzComponent } from './fizzbuzz/fizzbuzz.component';
 import {FizzbuzzService} from './fizzbuzz.service';
+import { LoginService } from './login.service';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FizzbuzzComponent
+    FizzbuzzComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [FizzbuzzService],
+  providers: [FizzbuzzService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
