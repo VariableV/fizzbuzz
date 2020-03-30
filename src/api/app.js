@@ -8,9 +8,7 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 app.use(cors());
 
-var router = express.Router();
-router.get('/fizzbuzz',function(req, res){
-    const n = parseInt(req.query.count);
+let fizzbuzz=(n)=>{
     var result = [];
     for(var i = 1; i <= n; i++){
         var str = "";
@@ -25,6 +23,15 @@ router.get('/fizzbuzz',function(req, res){
         }
         result.push(str);
     }
+    return result;
+}
+
+module.exports.fizzbuzz = fizzbuzz;
+
+var router = express.Router();
+router.get('/fizzbuzz',function(req, res){
+    const n = parseInt(req.query.count);
+    var result = fizzbuzz(n);
     res.json({ out: result });
 });
 

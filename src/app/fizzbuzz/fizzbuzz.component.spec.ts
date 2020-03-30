@@ -4,6 +4,8 @@ import { FizzbuzzComponent } from './fizzbuzz.component';
 import {By} from '@angular/platform-browser';
 import {FizzbuzzService} from '../fizzbuzz.service';
 import { Observable, of } from 'rxjs';
+import {LoginService} from '../login.service';
+import {Router} from '@angular/router';
 
 /* */ 
 describe('FizzbuzzComponent', () => {   
@@ -19,6 +21,14 @@ describe('FizzbuzzComponent', () => {
     }
   }
 
+  let mockLogin = {
+    logged() : boolean{
+      return true;
+    }
+  }
+
+  let mockRouter = {};
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ FizzbuzzComponent ],
@@ -27,6 +37,12 @@ describe('FizzbuzzComponent', () => {
       providers: [
         {
           provide: FizzbuzzService, useValue: mockApi
+        },
+        {
+          provide: LoginService, useValue: mockLogin
+        },
+        {
+          provide: Router, useValue: mockRouter
         }
       ]
     })

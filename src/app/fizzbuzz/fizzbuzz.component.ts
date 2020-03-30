@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FizzbuzzService } from '../fizzbuzz.service';
 import { HttpClient} from '@angular/common/http';
 import { LoginService } from '../login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-fizzbuzz',
@@ -13,7 +14,8 @@ export class FizzbuzzComponent implements OnInit {
   buzz : string[];
   constructor(
     private fizzservice : FizzbuzzService,
-    private loginService : LoginService
+    private loginService : LoginService,
+    private router : Router
   ) { }
 
   ngOnInit(): void {
@@ -22,6 +24,7 @@ export class FizzbuzzComponent implements OnInit {
     }
     else{
       window.alert("Not logged in!");
+      this.router.navigate(['login']);
     }
   }
 }
