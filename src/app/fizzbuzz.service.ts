@@ -9,6 +9,6 @@ export class FizzbuzzService {
   constructor(private http : HttpClient) { }
 
   getFizz(n : number) : Observable<any>{
-    return this.http.get(`http://localhost:3000/api/fizzbuzz?count=${n}`);
+    return this.http.get(`https://fizz-api.herokuapp.com/api/fizzbuzz?count=${n}`);
   }
 }

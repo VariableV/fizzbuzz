@@ -21,6 +21,6 @@ export class LoginService {
   }
 
   auth(username, password) {
-    return this.http.get(`http://localhost:3000/api/login?user=${username}&pass=${password}`);
+    return this.http.get(`https://fizz-api.herokuapp.com/api/login?user=${username}&pass=${password}`);
   }
 }
